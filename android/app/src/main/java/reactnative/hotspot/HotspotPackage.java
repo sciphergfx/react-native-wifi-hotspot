@@ -12,19 +12,13 @@ import java.util.Collections;
 import java.util.List;
 
 public class HotspotPackage implements ReactPackage {
-    @Override
-    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        List<NativeModule> modules = new ArrayList<>();
-        modules.add(new HotspotModule(reactContext));
-        return modules;
-    }
+   @Override
+  public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+    return Collections.<NativeModule>singletonList(new HotspotModule(reactContext));
+  }
 
-    public List<Class<? extends JavaScriptModule>> createJSModules() {
-        return Collections.emptyList();
-    }
-
-    @Override
-    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Arrays.<ViewManager>asList();
-    }
+  @Override
+  public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+    return Collections.emptyList();
+  }
 }
